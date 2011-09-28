@@ -95,6 +95,8 @@ THE SOFTWARE.
 					};
 
 					var $options = $.extend(true, defaults, options);
+					
+
 					// Verificamos que esten los plugins necesarios
 					if (!$.isFunction($.fn.draggable)
 							|| !$.isFunction($.fn.resizable)
@@ -111,6 +113,7 @@ THE SOFTWARE.
 					}
 
 					_self = $(this);
+					//Preserve options
 					setData('options',$options);
 					_self.empty();
 					_self.css({
@@ -616,7 +619,7 @@ THE SOFTWARE.
 									- (getData('selector').w / 2);
 						}
 
-						$selector = $('<div />')
+						$selector = $('<div style="display:none;"/>')
 								.attr('id', _self[0].id + '_selector')
 								.css(
 										{
@@ -949,7 +952,9 @@ THE SOFTWARE.
 					$.fn.cropzoom.getSelf = function() {
 						return _self;
 					}
-					
+					/*$.fn.cropzoom.getOptions = function() {
+						return _self.getData('options');
+					}*/
 
 					// Maintein Chaining
 					return this;
