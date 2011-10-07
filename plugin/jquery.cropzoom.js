@@ -619,7 +619,7 @@ THE SOFTWARE.
 									- (getData('selector').w / 2);
 						}
 
-						$selector = $('<div style="display:none;"/>')
+						$selector = $('<div/>')
 								.attr('id', _self[0].id + '_selector')
 								.css(
 										{
