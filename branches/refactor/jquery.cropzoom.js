@@ -28,6 +28,7 @@
  * Depends:
  *      jquery.ui.core.js
  *      jquery.ui.widget.js
+ *      jquery.transform.js - https://github.com/louisremi/jquery.transform.js (Used for rotation)
  *      jquery.ui.draggable.js
  *      jquery.ui.resizable.js
  *      jquery.ui.slider.js
