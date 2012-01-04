@@ -544,6 +544,8 @@
 				
 			var draggable_options = {
 				drag: function(event,ui){ 
+				    // check for webkit browsers
+					if($.browser.webkit) ui.position.top -= $(window).scrollTop();
 					o.image_data.top = ui.position.top;
 					o.image_data.left = ui.position.left;
 					instance._trigger("imageDrag", event, o.image.element);
@@ -1076,6 +1078,12 @@
 					break;
 				case "selectorLockAspect":
 					o.selector.element.resizable("option", "aspectRatio", value);
+					break;
+				case "image":
+				case "selector":
+					this.options[ key ] = $.extend({}, this.options[ key ], value);
+				default:
+					this.options[ key ] = value;
 					break;
 			}
 		},
