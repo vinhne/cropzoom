@@ -227,8 +227,8 @@ THE SOFTWARE.
 							// calculateTranslationAndRotation();
 						},
 						drag : function(event, ui) {
-							getData('image').posY = ui.position.top;
-							getData('image').posX = ui.position.left;
+							getData('image').posY = ui.position.top - $(document).scrollTop(); //FIX Scroll of window by Aramys Miranda
+							getData('image').posX = ui.position.left - $(document).scrollLeft();//FIX Scroll of window by Aramys Miranda
 							if ($options.image.snapToContainer)
 								limitBounds(ui);
 							else
@@ -1123,8 +1123,8 @@ THE SOFTWARE.
 				w : w,
 				h : h
 			});
-			console.log(getData('selector'));
-			_self.showInfo(_self.find('#' + _self[0].id + '_selector'));
+	  
+			//_self.showInfo(_self.find('#' + _self[0].id + '_selector'));
 		},
 		// Restore the Plugin
 		restore : function() {
