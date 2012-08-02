@@ -157,11 +157,12 @@ THE SOFTWARE.
 					if ($.browser.msie) {
 
 						// Add VML includes and namespace
-             if(_self[0].ownerDocument.namespaces){      
+            jQuery(window).load(function() {      
                 _self[0].ownerDocument.namespaces
                       .add('v', 'urn:schemas-microsoft-com:vml',
                             "#default#VML");
-             }
+            });
+             
 						// Add required css rules
 						var style = document.createStyleSheet();
 						style
