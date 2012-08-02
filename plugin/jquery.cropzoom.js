@@ -227,8 +227,8 @@ THE SOFTWARE.
 							// calculateTranslationAndRotation();
 						},
 						drag : function(event, ui) {
-							getData('image').posY = ui.position.top - $(document).scrollTop(); //FIX Scroll of window by Aramys Miranda
-							getData('image').posX = ui.position.left - $(document).scrollLeft();//FIX Scroll of window by Aramys Miranda
+							getData('image').posY = ui.position.top - $(document).scrollTop() + ((getData('image').rotH - getData('image').h) / 2); //FIX Scroll of window by Aramys Miranda
+							getData('image').posX = ui.position.left - $(document).scrollLeft() + ((getData('image').rotW - getData('image').w) / 2);//FIX Scroll of window by Aramys Miranda
 							if ($options.image.snapToContainer)
 								limitBounds(ui);
 							else
@@ -364,6 +364,7 @@ THE SOFTWARE.
 						var rotacion = "";
 						var traslacion = "";
 						$(function() {
+              adjustingSizesInRotation();
 							// console.log(imageData.id);
 							if ($.browser.msie) {
 								if ($.support.leadingWhitespace) {
@@ -834,6 +835,35 @@ THE SOFTWARE.
 						return _self.data(key);
 					}
 					;
+          function adjustingSizesInRotation(){
+                  var angle = getData('image').rotation * Math.PI / 180,
+                  var sin   = Math.sin(angle),
+                  var cos   = Math.cos(angle);
+						
+                  // (0,0) stays as (0, 0)
+						
+                  // (w,0) rotation
+                  var x1 = cos * getData('image').w;
+                  var y1 = sin * getData('image').w;
+						
+                  // (0,h) rotation
+                  var x2 = -sin * getData('image').h;
+                  var y2 = cos * getData('image').h;
+						
+                  // (w,h) rotation
+                  var x3 = cos * getData('image').w - sin * getData('image').h;
+                  var y3 = sin * getData('image').w + cos * getData('image').h;
+						
+                  var minX = Math.min(0, x1, x2, x3);
+                  var maxX = Math.max(0, x1, x2, x3);
+                  var minY = Math.min(0, y1, y2, y3);
+                  var maxY = Math.max(0, y1, y2, y3);
+						
+                  getData('image').rotW  = maxX - minX;
+                  getData('image').rotH = maxY - minY;
+                  getData('image').rotY = minY;
+                  getData('image').rotX = minX;      
+          };
 
 					function createMovementControls() {
 						var table = $('<table>\
