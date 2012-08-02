@@ -836,8 +836,8 @@ THE SOFTWARE.
 					}
 					;
           function adjustingSizesInRotation(){
-                  var angle = getData('image').rotation * Math.PI / 180,
-                  var sin   = Math.sin(angle),
+                  var angle = getData('image').rotation * Math.PI / 180;
+                  var sin   = Math.sin(angle);
                   var cos   = Math.cos(angle);
 						
                   // (0,0) stays as (0, 0)
