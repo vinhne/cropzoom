@@ -173,9 +173,9 @@ THE SOFTWARE.
 						// Add required css rules
 						var style = document.createStyleSheet();
 						style
-								.addRule('v\:*',
+								.addRule('v\\:*',
 										"behavior: url(#default#VML);display:inline-block");
-						style.addRule('v\:*', "antiAlias: false;");
+						style.addRule('v\\:*', "antiAlias: false;");
 
 						$svg = $("<div />").attr("id", "k").css({
 							'width' : $options.width,
