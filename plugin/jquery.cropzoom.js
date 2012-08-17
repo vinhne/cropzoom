@@ -155,12 +155,19 @@ THE SOFTWARE.
 							});
 
 					if ($.browser.msie) {
-
+            if ($.browser.msie  && parseInt($.browser.version, 10) === 7) {
+                var meta = document.createElement('meta');
+                meta.setAttribute('http-equiv', 'X-UA-Compatible');
+                meta.setAttribute('content', 'IE=EmulateIE7');
+                document.getElementsByTagName('head')[0].appendChild(meta);
+            
+            }
 						// Add VML includes and namespace
             jQuery(window).load(function() {      
                 _self[0].ownerDocument.namespaces
                       .add('v', 'urn:schemas-microsoft-com:vml',
                             "#default#VML");
+                
             });
              
 						// Add required css rules
