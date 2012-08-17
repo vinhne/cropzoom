@@ -469,7 +469,7 @@ THE SOFTWARE.
 									.addClass($options.expose.slidersOrientation);
 							rotMin.addClass($options.expose.slidersOrientation);
 							rotMax.addClass($options.expose.slidersOrientation);
-							$($options.expose.rotationElement).append(
+							$($options.expose.rotationElement).empty().append(
 									rotationContainerSlider);
 						} else {
 							$slider.addClass('vertical');
@@ -584,7 +584,7 @@ THE SOFTWARE.
 									.addClass($options.expose.slidersOrientation);
 							zoomContainerSlider
 									.addClass($options.expose.slidersOrientation);
-							$($options.expose.zoomElement).append(
+							$($options.expose.zoomElement).empty().append(
 									zoomContainerSlider);
 						} else {
 							zoomMin.addClass('vertical');
@@ -905,7 +905,7 @@ THE SOFTWARE.
 								clearTimeout(tMovement);
 							});
 							table.find('td:eq(' + i + ')').append(btns[i]);
-							$($options.expose.elementMovement).append(table);
+							$($options.expose.elementMovement).empty().append(table);
 
 						}
 					}
