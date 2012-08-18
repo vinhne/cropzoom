@@ -183,9 +183,9 @@ THE SOFTWARE.
 							'position' : 'absolute'
 						});
 						if ($.support.leadingWhitespace) {
-							$image = document.createElement('img');
+                $image = document.createElement('img');
 						} else {
-							$image = document.createElement('image');
+                $image = document.createElement('v:image');
 						}
 						$image.setAttribute('src', $options.image.source);
             $image.setAttribute('class','vml');
