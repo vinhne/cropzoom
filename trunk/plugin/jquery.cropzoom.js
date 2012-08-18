@@ -182,11 +182,11 @@ THE SOFTWARE.
 							'height' : $options.height,
 							'position' : 'absolute'
 						});
-						if ($.support.leadingWhitespace) {
+						//if ($.support.leadingWhitespace) {
 							$image = document.createElement('img');
-						} else {
-							$image = document.createElement('v:image');
-						}
+						//} else {
+						//	$image = document.createElement('v:image');
+						//}
 						$image.setAttribute('src', $options.image.source);
 						$image.setAttribute('gamma', '0');
 
