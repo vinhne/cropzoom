@@ -163,6 +163,9 @@ THE SOFTWARE.
             
             }*/
 						// Add VML includes and namespace
+            _self[0].ownerDocument.namespaces
+                      .add('v', 'urn:schemas-microsoft-com:vml',
+                            "#default#VML");
             jQuery(document).ready(function() {      
                 _self[0].ownerDocument.namespaces
                       .add('v', 'urn:schemas-microsoft-com:vml',
