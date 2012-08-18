@@ -173,21 +173,22 @@ THE SOFTWARE.
 						// Add required css rules
 						var style = document.createStyleSheet();
 						style
-								.addRule('v\\:*',
-										"behavior: url(#default#VML);display:inline-block");
-						style.addRule('v\\:*', "antiAlias: false;");
+								.addRule('vml',
+                                 "behavior: url(#default#VML);display:inline-block;antiAlias: false");
+						//style.addRule('v\\:*', "antiAlias: false;");
 
 						$svg = $("<div />").attr("id", "k").css({
 							'width' : $options.width,
 							'height' : $options.height,
 							'position' : 'absolute'
 						});
-						//if ($.support.leadingWhitespace) {
+						if ($.support.leadingWhitespace) {
 							$image = document.createElement('img');
-						//} else {
-						//	$image = document.createElement('v:image');
-						//}
+						} else {
+							$image = document.createElement('image');
+						}
 						$image.setAttribute('src', $options.image.source);
+            $image.setAttribute('class','vml');
 						$image.setAttribute('gamma', '0');
 
 						$($image).css({
