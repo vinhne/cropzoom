@@ -155,18 +155,12 @@ THE SOFTWARE.
 							});
 
 					if ($.browser.msie) {
-            /*if ($.browser.msie  && parseInt($.browser.version, 10) === 7) {
-                var meta = document.createElement('meta');
-                meta.setAttribute('http-equiv', 'X-UA-Compatible');
-                meta.setAttribute('content', 'IE=EmulateIE7');
-                document.getElementsByTagName('head')[0].appendChild(meta);
-            
-            }*/
-						// Add VML includes and namespace
+              // Add VML includes and namespace
             _self[0].ownerDocument.namespaces
                       .add('v', 'urn:schemas-microsoft-com:vml',
                             "#default#VML");
-            jQuery(document).ready(function() {      
+            //Include the namespace on load of window for IE10
+            jQuery(window).load(function() {      
                 _self[0].ownerDocument.namespaces
                       .add('v', 'urn:schemas-microsoft-com:vml',
                             "#default#VML");
@@ -175,11 +169,7 @@ THE SOFTWARE.
              
 						// Add required css rules
 						var style = document.createStyleSheet();
-						style
-								.addRule('vml',
-                                 "behavior: url(#default#VML);display:inline-block;antiAlias: false");
-						//style.addRule('v\\:*', "antiAlias: false;");
-
+						style.addRule('v\\:*',"behavior: url(#default#VML);display:inline-block;antiAlias: false");
 						$svg = $("<div />").attr("id", "k").css({
 							'width' : $options.width,
 							'height' : $options.height,
