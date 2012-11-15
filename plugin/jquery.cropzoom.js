@@ -164,12 +164,13 @@ THE SOFTWARE.
                 _self[0].ownerDocument.namespaces
                       .add('v', 'urn:schemas-microsoft-com:vml',
                             "#default#VML");
+                // Add required css rules
+                var style = document.createStyleSheet();
+                style.addRule('v\\:*',"behavior: url(#default#VML);display:inline-block;antiAlias: false");
                 
             });
              
-						// Add required css rules
-						var style = document.createStyleSheet();
-						style.addRule('v\\:*',"behavior: url(#default#VML);display:inline-block;antiAlias: false");
+						
 						$svg = $("<div />").attr("id", "k").css({
 							'width' : $options.width,
 							'height' : $options.height,
