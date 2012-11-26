@@ -386,8 +386,8 @@ THE SOFTWARE.
 														 */
 									$($image).css({
 										'msTransform' : rotacion,
-										'top' : (getData('image').posY,
-										'left' : (getData('image').posX
+										'top' : getData('image').posY,
+										'left' : getData('image').posX
 									});
 
 								} else {
