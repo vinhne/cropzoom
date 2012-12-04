@@ -159,16 +159,14 @@ THE SOFTWARE.
             _self[0].ownerDocument.namespaces
                       .add('v', 'urn:schemas-microsoft-com:vml',
                             "#default#VML");
-            //Include the namespace on load of window for IE10
-            jQuery(window).load(function() {      
-                _self[0].ownerDocument.namespaces
-                      .add('v', 'urn:schemas-microsoft-com:vml',
-                            "#default#VML");
-                // Add required css rules
-                var style = document.createStyleSheet();
-                style.addRule('v\\:*',"behavior: url(#default#VML);display:inline-block;antiAlias: false");
-                
-            });
+           
+                //Include the namespace on load of window for IE10
+                jQuery(window).load(function() {      
+                    _self[0].ownerDocument.namespaces
+                          .add('v', 'urn:schemas-microsoft-com:vml',
+                                "#default#VML");
+                });
+            
              
 						
 						$svg = $("<div />").attr("id", "k").css({
