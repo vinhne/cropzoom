@@ -232,8 +232,13 @@ THE SOFTWARE.
 							// calculateTranslationAndRotation();
 						},
 						drag : function(event, ui) {
+                    if(!$.browser.msie){
 							getData('image').posY = ui.position.top - $(document).scrollTop() + ((getData('image').rotH - getData('image').h) / 2); //FIX Scroll of window by Aramys Miranda
 							getData('image').posX = ui.position.left - $(document).scrollLeft() + ((getData('image').rotW - getData('image').w) / 2);//FIX Scroll of window by Aramys Miranda
+                    }else{
+              getData('image').posY = ui.position.top
+							getData('image').posX = ui.position.left
+                    }
 							if ($options.image.snapToContainer)
 								limitBounds(ui);
 							else
